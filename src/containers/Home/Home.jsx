@@ -10,10 +10,9 @@ const Home = () => {
         const url = "http://localhost:3000/heroes";
         const resp = await fetch(url);
         const data = await resp.json();
-        const { results } = data;
         console.log(data)
-        
-        const characters = results.map((char) => {
+
+        const characters = data.map((char) => {
             return {
                 id: char.id,
                 name: char.name,
@@ -41,7 +40,7 @@ const Home = () => {
         <>
             <h1>Súper Heroes</h1>
             <hr></hr>
-            <CardHeroes />
+            <CardHeroes character={character}/>
 
         </>
     )
